@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add New Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .card-body {
+            background-color: white;
+            padding: 30px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-save {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .btn-save:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h2>Add New Employee</h2>
+            </div>
+            <div class="card-body">
+                <form action="#" th:action="@{/employees/saveEmployee}" th:object="${employee}" method="post">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="Enter First Name" required>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter Email" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-save mt-4">Save Employee</button>
+					
+					<a href="/employees" class="btn btn-secondary mt-2 w-100">Exit</a>
+                </form>
+				
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
